@@ -1,0 +1,54 @@
+{% load static %}
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cringe100%</title>
+    <link rel="icon" href="{% static 'imgs/smallpososi.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <script src="{% static 'js/index.js' %}"></script>
+</head>
+<body>
+    <div class="container" >
+        <aside class="menu-container">
+            <div>Здарова, {{user.username}}, хочешь</div>
+            <a href="{% url 'logout' %}">Ливнуть?</a>
+        </aside>
+
+        <div class="click-container">
+            <p id="counter">{{main_cycle.coins_count}} $</p>
+            <button class="click-holder" onclick="call_click()">
+                <img id="click-image" src="{% static 'imgs/smallpososi.png' %}" alt="">
+            </button>
+            <span id="click_power">Зарабатываю {{main_cycle.click_power}} $ за клик</span>
+            <div>Зарабатываю <span id="auto_click_power">{{main_cycle.auto_click_power}}</span> $ в секунду</div>
+        </div>
+
+        <div class="boost-container">                
+            <h3>Чё бы мне сделать?</h3>
+            <div class="boost-holder" id="boost-holder">
+                {% for boost in boosts %}
+                    {% if boost.boost_type == 0 %}
+                        <button class="boost" id="boost_{{boost.id}}" onclick="update_boost({{boost.id}})">
+                            <p>Нанять</p>
+                            <p>школяра lvl: <span id="boost_level">{{boost.level}}</span></p>
+                            <p>+<span id="boost_power">{{boost.power}}</span> за клик</p>
+                            <p>Цена: <span id="boost_price">{{boost.price}}</span></p>
+                        </button>
+                    {% endif %}
+                    {% if boost.boost_type == 1 %}
+                        <button class="boost auto" id="boost_{{boost.id}}" onclick="update_boost({{boost.id}})">
+                            <p>Сняться в рекламе</p>
+                            <p><span id="boost_level">{{boost.level}}</span></p>
+                            <p>+<span id="boost_power">{{boost.power}}</span> $/sec</p>
+                            <p>Цена: <span id="boost_price">{{boost.price}}</span></p>
+                        </button>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>

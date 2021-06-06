@@ -1,0 +1,24 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cringe100%</title>
+    <link rel="icon" href="{% static 'imgs/smallpososi.png' %}" type="image/x-icon">
+    <link rel="stylesheet" href="{% static 'css/index2.css' %}">
+</head>
+<body>
+    <form method='POST' action="{% url 'login' %}">
+        {% csrf_token %}
+        <p>{{ form.username }}</p>
+        <p>{{ form.password }}</p>
+        <p><input type="submit"></p>
+        <a>Нет аккаунта?</a> <a href="{% url 'register' %}">Пососи!</a>
+    </form>
+    <img src="{% static 'imgs/prepod.jpg' %}" alt="">
+    {% if form.errors %}
+        <p>{{ form.errors }}</p>
+    {% endif %}
+</body>
+</html>

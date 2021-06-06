@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    background:url(/static/imgs/giphy.gif) no-repeat center center fixed;
+    background-size: cover;
+    background-color: #5464a0;
+    -webkit-text-stroke: 1px red;
+    font-family: Impact, fantasy;
+    font-weight: 900;
+}
+
+form {
+    font-size: 30px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: orange;  
+}
+
+a {
+    font-size: 50px;
+}
