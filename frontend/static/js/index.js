@@ -90,12 +90,18 @@ function render_boost(boost) {
 function add_boost(boost) {
     let boost_holder = document.getElementById('boost-holder')
     const button = document.createElement('button')
-    var type = `<p>Нанять</p><p>школяра lvl: <span id="boost_level">${boost.level}</span></p><p>+<span id="boost_power">${boost.power}</span> за клик</p><p>Цена: <span id="boost_price">${boost.price}</span></p>`
+    var type = `<p>Нанять</p>
+    <p>школяра lvl: <span id="boost_level">${boost.level}</span></p>
+    <p>+<span id="boost_power">${boost.power}</span> за клик</p>
+    <p>Цена: <span id="boost_price">${boost.price}</span></p>`
     button.setAttribute('class', 'boost')
     if (boost.boost_type == 1) 
     {
         button.setAttribute('class', 'boost auto')
-        type = `<p>Сняться в рекламе</p><p><span id="boost_level">${boost.level}</span></p><p>+<span id="boost_power">${boost.power}</span> $/sec</p><p>Цена: <span id="boost_price">${boost.price}</span></p>`
+        type = `<p>Сняться в рекламе</p>
+        <p><span id="boost_level">${boost.level}</span></p>
+        <p>+<span id="boost_power">${boost.power}</span> $/sec</p>
+        <p>Цена: <span id="boost_price">${boost.price}</span></p>`
     }
     button.setAttribute('id', `boost_${boost.id}`)
     button.setAttribute('onclick', `update_boost(${boost.id})`)
